@@ -10,7 +10,9 @@ export const DocumentList: React.FC = () => {
   const { documents, removeDocument, selectedPolicyId, setSelectedPolicy } =
     useAppStore();
 
-  if (documents.length === 0) {
+  const documentList = Array.isArray(documents) ? documents : [];
+
+  if (documentList.length === 0) {
     return (
       <Card>
         <CardContent className="py-8 text-center text-gray-500">
@@ -41,7 +43,7 @@ export const DocumentList: React.FC = () => {
       <CardContent className="p-4">
         <h3 className="font-semibold mb-3">Uploaded Documents</h3>
         <div className="space-y-2">
-          {documents.map((doc) => (
+          {documentList.map((doc) => (
             <div
               key={doc.id}
               className={`flex items-center justify-between p-3 rounded-lg border transition-colors cursor-pointer ${
