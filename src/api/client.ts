@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_BASE =
-  import.meta.env.VITE_API_URL || "https://legitiq-be.onrender.com";
+  import.meta.env.VITE_API_URL || "legitiq-be-production.up.railway.app";
 
 const api = axios.create({
   baseURL: API_BASE,
